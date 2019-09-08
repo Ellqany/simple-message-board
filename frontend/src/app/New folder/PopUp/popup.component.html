@@ -1,0 +1,28 @@
+<h2 mat-dialog-title class="h2 text-center">Bring me food</h2>
+<h2 mat-dialog-title class="h2 text-center">For my Fluffy</h2>
+<mat-dialog-content class="mat-typography">
+ 
+  <div class="row">
+    <div class="col-xs-6 col-md-4"></div>
+    <div class="col-xs-6 col-md-4">
+      <img class="img-responsive img-thumbnail" style="width: 100%; max-height: 400px;"
+        src="https://scontent-hbe1-1.cdninstagram.com/vp/0cdb121891b4a378f9db7c91dd77be48/5DFFC0A0/t51.2885-15/e35/69512470_467941763788663_1203417984441037796_n.jpg?_nc_ht=scontent-hbe1-1.cdninstagram.com&_nc_cat=107" />
+    </div>
+    <div class="col-xs-6 col-md-4"></div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-xs-6 col-md-4"></div>
+    <div class="col-xs-6 col-md-4">
+      <mat-form-field class="full">
+        <input matInput placeholder="Tell us about your pet food" #food style="width: 100%;">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-6 col-md-4"></div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" (click)="onclick()" cdkFocusInitial> Food </button>
+</mat-dialog-actions>

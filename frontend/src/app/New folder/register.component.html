@@ -1,0 +1,54 @@
+<style>
+    .full {
+        width: 50%;
+    }
+    
+    .error {
+        background-color: #fff0f0
+    }
+</style>
+
+<mat-card>
+    <form [formGroup]="form" (ngSubmit)="onSubmit();">
+        <mat-form-field class="full">
+            <input [ngClass]="{'error' : isValid('FirstName')}" matInput placeholder="First Name" formControlName="FirstName">
+        </mat-form-field>
+
+        <mat-form-field class="full">
+            <input [ngClass]="{'error' : isValid('LastName')}" matInput placeholder="Last Name" formControlName="LastName">
+        </mat-form-field>
+
+        <mat-form-field class="full">
+            <input [ngClass]="{'error' : isValid('Email')}" type="email" matInput placeholder="Email" formControlName="Email">
+        </mat-form-field>
+
+        <mat-form-field class="full">
+            <input [ngClass]="{'error' : isValid('Password')}" type="password" matInput placeholder="Password" formControlName="Password">
+        </mat-form-field>
+
+        <div class="col-xs-12 singleInput">
+            <mat-checkbox #garden [checked]="checked" (click)="GetValue($event)" name="garden">
+                <i class="glyphicon glyphicon glyphicon-tree-deciduous"></i> Do you have a garden?
+            </mat-checkbox>
+        </div>
+
+        <mat-form-field class="full">
+            <input [ngClass]="{'error' : isValid('ConfirmPassword')}" type="password" matInput placeholder="Confirm Password" formControlName="ConfirmPassword">
+        </mat-form-field>
+        <br />
+        <span *ngIf="form.errors?.mismatchedFields">
+      Passwords do not match
+    </span>
+        <br />
+        <button mat-raised-button color="primary">Register</button>
+    </form>
+</mat-card>
+
+
+<div *ngIf="checked; else loggedOut">
+    I have a garden
+</div>
+
+<ng-template #loggedOut>
+    no I haven't a garden.
+</ng-template>
